@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Jade, quer namorar comigo?</title>
+  <link rel="stylesheet" href="jade.css">
+</head>
+<body>
+  <div id="customBgImage" class="custom-bg-image"></div>
+  
+  <div class="container">
+    <div id="topImageContainer" class="top-image-container"></div>
+    <h1 class="title" id="mainTitle">Quer namorar comigo?</h1>
+    <p id="subtitle" class="subtitle"></p>
+    <div id="photoGallery" class="photo-gallery"></div>
+    
+    <div class="buttons">
+      <button id="yesBtn">Sim</button>
+      <button id="noBtn">Não</button>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <div class="hearts-container"></div>
+    <div class="message-box">
+      <button class="close-btn" id="closeBtn">✖</button>
+      <div id="responseImageContainer" class="response-image-container"></div>
+      <h2 id="responseTitle">É você e eu</h2>
+      <p id="responseMessage">Nosso coração bate no mesmo ritmo agora 💖</p>
+      <div id="videoContainer" class="video-container"></div>
+      <p id="extraMessage" class="extra-message"></p>
+    </div>
+  </div>
+
+  <div id="adminPanel" class="admin-panel">
+    <div class="admin-content">
+      <div class="admin-header">
+        <h2>🔒 Painel de Personalização</h2>
+        <button class="close-admin-btn" id="closeAdminBtn">✖</button>
+      </div>
+      
+      <div class="admin-body">
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="textos">📝 Textos</button>
+          <button class="tab-btn" data-tab="fotos">📸 Fotos</button>
+          <button class="tab-btn" data-tab="videos">🎥 Vídeos</button>
+          <button class="tab-btn" data-tab="cores">🎨 Cores</button>
+        </div>
+
+        <div class="tab-content active" id="tab-textos">
+          <div class="form-group">
+            <label>Título da Página:</label>
+            <input type="text" id="input-pageTitle" placeholder="Jade, quer namorar comigo?">
+          </div>
+          <div class="form-group">
+            <label>Título Principal:</label>
+            <input type="text" id="input-mainTitle" placeholder="Quer namorar comigo?">
+          </div>
+          <div class="form-group">
+            <label>Subtítulo:</label>
+            <input type="text" id="input-subtitle" placeholder="Jade, você é especial...">
+          </div>
+          <div class="form-group">
+            <label>Título da Resposta (SIM):</label>
+            <input type="text" id="input-responseTitle" placeholder="É você e eu">
+          </div>
+          <div class="form-group">
+            <label>Mensagem da Resposta:</label>
+            <textarea id="input-responseMessage" rows="3" placeholder="Nosso coração bate no mesmo ritmo agora 💖"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Mensagem Extra:</label>
+            <textarea id="input-extraMessage" rows="3" placeholder="Mensagem adicional..."></textarea>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-fotos">
+          <div class="form-group">
+            <label>Foto Principal (acima do título):</label>
+            <input type="file" id="input-topImage" accept="image/*">
+            <div id="preview-topImage" class="image-preview"></div>
+            <button class="remove-btn" data-target="topImage">Remover</button>
+          </div>
+          <div class="form-group">
+            <label>Imagem de Fundo:</label>
+            <input type="file" id="input-bgImage" accept="image/*">
+            <div id="preview-bgImage" class="image-preview"></div>
+            <button class="remove-btn" data-target="bgImage">Remover</button>
+          </div>
+          <div class="form-group">
+            <label>Foto na Resposta (quando clicar SIM):</label>
+            <input type="file" id="input-responseImage" accept="image/*">
+            <div id="preview-responseImage" class="image-preview"></div>
+            <button class="remove-btn" data-target="responseImage">Remover</button>
+          </div>
+          <div class="form-group">
+            <label>Galeria de Fotos (múltiplas):</label>
+            <input type="file" id="input-gallery" accept="image/*" multiple>
+            <div id="preview-gallery" class="gallery-preview"></div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-videos">
+          <div class="form-group">
+            <label>Vídeo Especial:</label>
+            <input type="file" id="input-video" accept="video/*">
+            <div id="preview-video" class="video-preview"></div>
+            <button class="remove-btn" data-target="video">Remover</button>
+          </div>
+          <div class="form-group">
+            <label>URL do YouTube:</label>
+            <input type="url" id="input-videoUrl" placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-cores">
+          <div class="form-group">
+            <label>Cor Principal:</label>
+            <input type="color" id="input-primaryColor" value="#d6336c">
+          </div>
+          <div class="form-group">
+            <label>Cor de Fundo 1:</label>
+            <input type="color" id="input-bgColor1" value="#ffe4e1">
+          </div>
+          <div class="form-group">
+            <label>Cor de Fundo 2:</label>
+            <input type="color" id="input-bgColor2" value="#ffc0cb">
+          </div>
+          <div class="form-group">
+            <label>Opacidade do Fundo: <span id="opacity-value">30%</span></label>
+            <input type="range" id="input-bgOpacity" min="0" max="100" value="30">
+          </div>
+        </div>
+
+        <div class="admin-actions">
+          <button class="save-btn" id="saveBtn">💾 Salvar Alterações</button>
+          <button class="reset-btn" id="resetBtn">🔄 Resetar Tudo</button>
+          <button class="export-btn" id="exportBtn">📤 Exportar Config</button>
+          <input type="file" id="importFile" accept=".json" style="display:none">
+          <button class="import-btn" id="importBtn">📥 Importar Config</button>
+        </div>
+        
+        <div class="admin-info">
+          <p><strong>🔐 Atalho:</strong> Pressione <kbd>Ctrl+Shift+A</kbd> (ou <kbd>Cmd+Shift+A</kbd> no Mac)</p>
+          <p><strong>💡 Dica:</strong> Após personalizar, basta enviar a URL para Jade!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="jade.js"></script>
+</body>
+</html>
